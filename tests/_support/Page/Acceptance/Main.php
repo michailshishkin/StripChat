@@ -2,6 +2,8 @@
 
 namespace Page\Acceptance;
 
+use AcceptanceTester;
+
 class Main
 {
     // include url of current page
@@ -27,11 +29,11 @@ class Main
     }
 
     /**
-     * @var \AcceptanceTester;
+     * @var AcceptanceTester;
      */
     protected $acceptanceTester;
 
-    public function __construct(\AcceptanceTester $I)
+    public function __construct(AcceptanceTester $I)
     {
         $this->acceptanceTester = $I;
     }

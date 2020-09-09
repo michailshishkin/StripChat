@@ -8,11 +8,7 @@ use function PHPUnit\Framework\assertTrue;
 
 class MainCest
 {
-    public function _before(AcceptanceTester $I)
-    {
-    }
-
-/*    // tests
+    // tests
     public function firstTest(AcceptanceTester $I, Main $mainPage)
     {
         $mainPage->prepare();
@@ -110,7 +106,7 @@ class MainCest
         assertCount(1, array_count_values($tableValue), 'The number of rows in the table does not match the expected');
         assertTrue($result, 'There are no entries in the table that match = ' . $searchRow . '');
     }
-*/
+
     public function fifthTest(AcceptanceTester $I, Main $mainPage)
     {
         $mainPage->prepare();

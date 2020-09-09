@@ -20,5 +20,5 @@ extensions:
     enabled:
         - Codeception\Extension\RunBefore:
                 - 'vendor/bin/codecept clean'
-                - 'rm -rf sites/test/files/*'
+                - 'rm -rf tests/_output/*'
                 - 'chromedriver --url-base=/wd/hub'
