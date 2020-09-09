@@ -10,6 +10,7 @@ class Main
     public static $URL = 'trysql.asp?filename=trysql_select_all';
     public static $runButton = '/html/body/div[2]/div/div[1]/div[1]/button';
     public static $resultSQL = '//*[@id="divResultSQL"]/div';
+    public static $table = 'div#divResultSQL table tbody tr';
     public static $restoreDB = '//*[@id="restoreDBBtn"]';
 
     /**

@@ -24,7 +24,7 @@ class MainCest
         }
 
         $I->waitForElementVisible('div#divResultSQL table', 1);
-        $tableValue = $I->grabMultiple('div#divResultSQL table tbody tr');
+        $tableValue = $I->grabMultiple($mainPage::$table);
         unset($tableValue[0]);
         $result = false;
 
@@ -43,7 +43,7 @@ class MainCest
         $sql = "SELECT * FROM Customers C WHERE C.City = 'London'";
         $I->executeJS('window.editor.setCursor(editor.firstLine()); window.editor.setValue("' . $sql . '");');
         $I->click($mainPage::$runButton);
-        $tableValue = $I->grabMultiple('div#divResultSQL table tbody tr');
+        $tableValue = $I->grabMultiple($mainPage::$table);
         unset($tableValue[0]);
         assertCount(6, array_count_values($tableValue), 'The number of rows in the table does not match the expected');
     }
@@ -62,7 +62,7 @@ class MainCest
         $I->executeJS('window.editor.setCursor(editor.firstLine()); window.editor.setValue("' . $sql2 . '");');
         $I->click($mainPage::$runButton);
 
-        $tableValue = $I->grabMultiple('div#divResultSQL table tbody tr');
+        $tableValue = $I->grabMultiple($mainPage::$table);
         unset($tableValue[0]);
         foreach ($tableValue as $row) {
             if (strpos($row, $searchRow) !== false) {
@@ -96,7 +96,7 @@ class MainCest
         $I->executeJS('window.editor.setCursor(editor.firstLine()); window.editor.setValue("' . $sql2 . '");');
         $I->click($mainPage::$runButton);
 
-        $tableValue = $I->grabMultiple('div#divResultSQL table tbody tr');
+        $tableValue = $I->grabMultiple($mainPage::$table);
         unset($tableValue[0]);
         foreach ($tableValue as $row) {
             if (strpos($row, $searchRow) !== false) {
@@ -123,7 +123,7 @@ class MainCest
         }
         $I->wait(1);
 
-        $tableValueFirst = $I->grabMultiple('div#divResultSQL table tbody tr');
+        $tableValueFirst = $I->grabMultiple($mainPage::$table);
         unset($tableValueFirst[0]);
 
         $sql2 = "INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('WhiteBear', 'Mikhail Shishkin', '2nd Mirgorodskaya, 9', 'Novosibirsk','630058', 'Russian Federation')";
@@ -136,7 +136,7 @@ class MainCest
         $I->executeJS('window.editor.setCursor(editor.firstLine()); window.editor.setValue("' . $sql . '");');
         $I->click($mainPage::$runButton);
         $I->wait(1);
-        $tableValueSecond = $I->grabMultiple('div#divResultSQL table tbody tr');
+        $tableValueSecond = $I->grabMultiple($mainPage::$table);
         unset($tableValueSecond[0]);
 
         foreach ($tableValueSecond as $row) {
@@ -157,7 +157,7 @@ class MainCest
         $I->executeJS('window.editor.setCursor(editor.firstLine()); window.editor.setValue("' . $sql . '");');
         $I->click($mainPage::$runButton);
         $I->wait(1);
-        $tableValueThird = $I->grabMultiple('div#divResultSQL table tbody tr');
+        $tableValueThird = $I->grabMultiple($mainPage::$table);
         unset($tableValueThird[0]);
 
         assertEquals($tableValueFirst, $tableValueThird, 'Tables not Equal');
